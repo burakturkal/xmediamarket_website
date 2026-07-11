@@ -98,6 +98,8 @@
     .btn-primary:hover { transform: translateY(-2px); background: var(--accent-soft); }
     .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
     .btn-ghost:hover { border-color: var(--ink-dim); transform: translateY(-2px); }
+    .btn-whatsapp { background: #25d366; color: #04310f; }
+    .btn-whatsapp:hover { transform: translateY(-2px); background: #34e074; }
 
     @media (max-width: 860px) { .nav-links a:not(.btn) { display: none; } }
 
@@ -300,6 +302,15 @@
     }
     .cta h2 em { font-style: italic; color: var(--accent-soft); }
     .cta p { margin: 26px auto 38px; color: var(--ink-dim); max-width: 48ch; font-size: 19px; }
+    .contact-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .contact-actions .btn svg { flex: none; }
+    .contact-meta {
+      margin-top: 28px; display: flex; gap: 14px; justify-content: center; align-items: center;
+      flex-wrap: wrap; font-family: "Space Mono", monospace; font-size: 14px; color: var(--ink-dim);
+    }
+    .contact-meta a { transition: color .25s var(--ease); }
+    .contact-meta a:hover { color: var(--accent-soft); }
+    .contact-meta .sep { color: var(--muted); }
 
     /* ---------- FOOTER ---------- */
     footer { border-top: 1px solid var(--line); padding: 60px 0 40px; }
@@ -595,7 +606,18 @@
         <span class="eyebrow">Let's build something</span>
         <h2 style="margin-top:22px;">One partner for <em>every</em> part of your growth.</h2>
         <p>Book a free 30-minute strategy call. We'll look at where you are, map where the next big win is hiding, and show you exactly how we'd get you there.</p>
-        <a class="btn btn-primary" href="mailto:hello@xmediamarket.com" style="font-size:17px;padding:16px 30px;">Book a free strategy call →</a>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:xmediamarketnow@gmail.com" style="font-size:17px;padding:16px 30px;">Email us →</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/15129936008" target="_blank" rel="noopener" style="font-size:17px;padding:16px 26px;">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.84-2-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.9 1.13-.17.19-.33.21-.62.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.45-1.72-1.62-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.33.44-.5.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.17 2.95c.15.19 2.02 3.08 4.89 4.32.68.29 1.22.47 1.63.6.69.22 1.31.19 1.8.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.05 21.5a9.4 9.4 0 01-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 01-1.44-5.02c0-5.19 4.23-9.41 9.44-9.41a9.38 9.38 0 019.42 9.42c0 5.19-4.24 9.42-9.46 9.42zm5.5-14.91A7.9 7.9 0 0012.05 4.2c-4.36 0-7.9 3.54-7.9 7.89 0 1.53.43 3.02 1.24 4.31l.19.31-.82 2.99 3.07-.8.3.18a7.85 7.85 0 003.72.95h.01c4.35 0 7.89-3.54 7.9-7.89a7.85 7.85 0 00-2.31-5.58z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <div class="contact-meta">
+          <a href="mailto:xmediamarketnow@gmail.com">xmediamarketnow@gmail.com</a>
+          <span class="sep">·</span>
+          <a href="tel:+15129936008">+1 (512) 993-6008</a>
+        </div>
       </div>
     </section>
 
@@ -632,10 +654,11 @@
             </div>
             <div class="foot-col">
               <span class="h">Connect</span>
-              <a href="mailto:hello@xmediamarket.com">Email</a>
+              <a href="mailto:xmediamarketnow@gmail.com">xmediamarketnow@gmail.com</a>
+              <a href="tel:+15129936008">+1 (512) 993-6008</a>
+              <a href="https://wa.me/15129936008" target="_blank" rel="noopener">WhatsApp</a>
               <a href="#">LinkedIn</a>
               <a href="#">Instagram</a>
-              <a href="#">X / Twitter</a>
             </div>
           </div>
         </div>
