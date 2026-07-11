@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XMM — Growth studio for brands with momentum</title>
-  <meta name="description" content="XMM is a growth studio that turns overlooked brands into category leaders. Strategy, story, and demand — built to compound." />
+  <title>XMM — Full-service growth &amp; digital studio</title>
+  <meta name="description" content="X Media Market (XMM) is a full-service growth studio: paid ads, social media, SEO, websites, custom apps, and AI agents — one team, built to compound." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,6 +19,7 @@
       --ink-dim: #b6ac9c;
       --muted: #7d7568;
       --line: rgba(236, 229, 216, 0.10);
+      --line-2: rgba(236, 229, 216, 0.16);
       --accent: #ff5b2e;
       --accent-soft: #ff7d57;
       --sage: #b9c4a0;
@@ -27,7 +28,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -41,394 +41,282 @@
       position: relative;
     }
 
-    /* grain + glow atmosphere */
     body::before {
       content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
       background:
         radial-gradient(120% 80% at 85% -10%, rgba(255, 91, 46, 0.16), transparent 55%),
         radial-gradient(90% 60% at 0% 100%, rgba(185, 196, 160, 0.07), transparent 60%);
     }
     body::after {
       content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.04;
-      mix-blend-mode: overlay;
+      position: fixed; inset: 0; pointer-events: none; z-index: 1;
+      opacity: 0.04; mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
     .wrap { position: relative; z-index: 2; }
-
-    .container {
-      width: min(1180px, 92vw);
-      margin-inline: auto;
-    }
-
+    .container { width: min(1180px, 92vw); margin-inline: auto; }
     a { color: inherit; text-decoration: none; }
 
     .eyebrow {
       font-family: "Space Mono", monospace;
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent-soft);
+      font-size: 12px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent-soft);
     }
 
     /* ---------- NAV ---------- */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(12px);
       background: linear-gradient(to bottom, rgba(13,12,10,0.85), rgba(13,12,10,0.4));
       border-bottom: 1px solid var(--line);
     }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 0;
-    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
     .logo {
-      font-family: "Fraunces", serif;
-      font-weight: 600;
-      font-size: 26px;
-      letter-spacing: -0.02em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-family: "Fraunces", serif; font-weight: 600; font-size: 26px;
+      letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px;
     }
     .logo .dot {
       width: 9px; height: 9px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 14px var(--accent);
+      background: var(--accent); box-shadow: 0 0 14px var(--accent);
       animation: pulse 2.6s var(--ease) infinite;
     }
     @keyframes pulse { 0%,100%{ transform: scale(1); opacity:1 } 50%{ transform: scale(1.5); opacity:.6 } }
 
-    .nav-links { display: flex; gap: 34px; align-items: center; }
-    .nav-links a {
-      font-size: 15px;
-      color: var(--ink-dim);
-      transition: color .25s var(--ease);
-    }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a { font-size: 15px; color: var(--ink-dim); transition: color .25s var(--ease); }
     .nav-links a:hover { color: var(--ink); }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 12px 22px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 600; font-size: 15px; padding: 12px 22px;
       border-radius: 999px;
-      transition: transform .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+      transition: transform .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #170a04;
-    }
+    .btn-primary { background: var(--accent); color: #170a04; }
     .btn-primary:hover { transform: translateY(-2px); background: var(--accent-soft); }
-    .btn-ghost {
-      border: 1px solid var(--line);
-      color: var(--ink);
-    }
+    .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
     .btn-ghost:hover { border-color: var(--ink-dim); transform: translateY(-2px); }
 
-    @media (max-width: 720px) { .nav-links a:not(.btn) { display: none; } }
+    @media (max-width: 860px) { .nav-links a:not(.btn) { display: none; } }
 
     /* ---------- HERO ---------- */
-    header.hero {
-      padding: clamp(70px, 12vw, 150px) 0 clamp(60px, 8vw, 110px);
-    }
+    header.hero { padding: clamp(64px, 11vw, 140px) 0 clamp(48px, 6vw, 84px); }
     .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 15px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.02);
-      margin-bottom: 34px;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 15px; border: 1px solid var(--line); border-radius: 999px;
+      background: rgba(255,255,255,0.02); margin-bottom: 30px;
     }
-    .hero-tag span.pill {
-      font-family: "Space Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-    }
+    .hero-tag .pill { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: 0.1em; }
     h1 {
-      font-family: "Fraunces", serif;
-      font-weight: 400;
-      font-size: clamp(44px, 8.2vw, 104px);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-      max-width: 14ch;
+      font-family: "Fraunces", serif; font-weight: 400;
+      font-size: clamp(42px, 7.8vw, 98px); line-height: 0.99;
+      letter-spacing: -0.03em; max-width: 15ch;
     }
-    h1 em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent-soft);
-    }
+    h1 em { font-style: italic; font-weight: 300; color: var(--accent-soft); }
     .hero p.lede {
-      margin-top: 34px;
-      font-size: clamp(18px, 2.3vw, 22px);
-      color: var(--ink-dim);
-      max-width: 52ch;
-      line-height: 1.55;
+      margin-top: 30px; font-size: clamp(18px, 2.3vw, 22px);
+      color: var(--ink-dim); max-width: 56ch; line-height: 1.55;
     }
-    .hero-cta {
-      margin-top: 44px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
+    .hero-cta { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+    .trust-row {
+      margin-top: 46px; display: flex; gap: 40px; flex-wrap: wrap;
+      padding-top: 30px; border-top: 1px solid var(--line);
     }
-    .hero-cta .note {
-      font-size: 14px;
-      color: var(--muted);
+    .trust-row .item .k {
+      font-family: "Fraunces", serif; font-size: 30px; line-height: 1; letter-spacing: -0.02em;
     }
+    .trust-row .item .k em { font-style: normal; color: var(--accent); }
+    .trust-row .item .v { font-size: 13.5px; color: var(--muted); margin-top: 6px; max-width: 22ch; }
 
     /* staggered reveal */
     .reveal { opacity: 0; transform: translateY(24px); animation: rise .9s var(--ease) forwards; }
     @keyframes rise { to { opacity: 1; transform: none; } }
-    .d1 { animation-delay: .05s; }
-    .d2 { animation-delay: .16s; }
-    .d3 { animation-delay: .27s; }
-    .d4 { animation-delay: .38s; }
-    .d5 { animation-delay: .49s; }
+    .d1 { animation-delay: .05s; } .d2 { animation-delay: .16s; }
+    .d3 { animation-delay: .27s; } .d4 { animation-delay: .38s; }
+    .d5 { animation-delay: .49s; } .d6 { animation-delay: .60s; }
 
-    /* ---------- MARQUEE / PROOF ---------- */
-    .proof {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 30px 0;
-      overflow: hidden;
-    }
+    /* ---------- MARQUEE ---------- */
+    .proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 0; overflow: hidden; }
     .proof-label {
-      font-family: "Space Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 18px;
+      font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
     }
     .marquee {
-      display: flex;
-      gap: 60px;
-      white-space: nowrap;
-      width: max-content;
-      animation: slide 32s linear infinite;
-      font-family: "Fraunces", serif;
-      font-size: 26px;
-      color: var(--ink-dim);
+      display: flex; gap: 56px; white-space: nowrap; width: max-content;
+      animation: slide 34s linear infinite;
+      font-family: "Fraunces", serif; font-size: 25px; color: var(--ink-dim);
     }
     .marquee span { opacity: .55; }
     @keyframes slide { to { transform: translateX(-50%); } }
 
     /* ---------- SECTION SHELL ---------- */
-    section { padding: clamp(70px, 10vw, 130px) 0; position: relative; }
-    .sec-head { max-width: 62ch; margin-bottom: 60px; }
+    section { padding: clamp(64px, 9vw, 120px) 0; position: relative; }
+    .sec-head { max-width: 64ch; margin-bottom: 54px; }
     .sec-head h2 {
-      font-family: "Fraunces", serif;
-      font-weight: 400;
-      font-size: clamp(32px, 5vw, 54px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-top: 18px;
+      font-family: "Fraunces", serif; font-weight: 400;
+      font-size: clamp(32px, 5vw, 54px); line-height: 1.05;
+      letter-spacing: -0.02em; margin-top: 18px;
     }
-    .sec-head p { margin-top: 20px; color: var(--ink-dim); max-width: 48ch; }
+    .sec-head p { margin-top: 20px; color: var(--ink-dim); max-width: 52ch; }
 
     /* ---------- SERVICES ---------- */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .card {
       background: linear-gradient(160deg, var(--surface), var(--bg-2));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 34px 30px 38px;
-      position: relative;
-      overflow: hidden;
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 30px 28px 32px; position: relative; overflow: hidden;
       transition: transform .4s var(--ease), border-color .4s var(--ease);
     }
     .card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
+      content: ""; position: absolute; inset: 0;
       background: radial-gradient(120% 90% at 100% 0%, rgba(255,91,46,0.10), transparent 55%);
-      opacity: 0;
-      transition: opacity .4s var(--ease);
+      opacity: 0; transition: opacity .4s var(--ease);
     }
     .card:hover { transform: translateY(-6px); border-color: rgba(255,91,46,0.35); }
     .card:hover::after { opacity: 1; }
-    .card .idx {
-      font-family: "Space Mono", monospace;
-      font-size: 12px;
+    .card .ico {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: grid; place-items: center;
+      border: 1px solid var(--line-2);
+      background: rgba(255,91,46,0.08);
       color: var(--accent-soft);
-      letter-spacing: 0.1em;
+      margin-bottom: 20px;
     }
+    .card .ico svg { width: 22px; height: 22px; }
     .card h3 {
-      font-family: "Fraunces", serif;
-      font-weight: 500;
-      font-size: 25px;
-      margin: 18px 0 12px;
-      letter-spacing: -0.01em;
+      font-family: "Fraunces", serif; font-weight: 500; font-size: 23px;
+      margin-bottom: 10px; letter-spacing: -0.01em;
     }
-    .card p { color: var(--ink-dim); font-size: 15.5px; }
-    .card ul { list-style: none; margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .card p { color: var(--ink-dim); font-size: 15px; }
+    .card ul { list-style: none; margin-top: 18px; display: flex; flex-wrap: wrap; gap: 7px; }
     .card li {
-      font-family: "Space Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      color: var(--muted);
-      border: 1px solid var(--line);
-      padding: 5px 10px;
-      border-radius: 999px;
+      font-family: "Space Mono", monospace; font-size: 10.5px; letter-spacing: 0.03em;
+      color: var(--muted); border: 1px solid var(--line); padding: 5px 9px; border-radius: 999px;
     }
-    @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
+    @media (max-width: 980px) { .services { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .services { grid-template-columns: 1fr; } }
+
+    /* ---------- PLATFORMS / STACK ---------- */
+    .stack-band { background: linear-gradient(180deg, var(--bg-2), var(--bg)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stack-groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px 24px; }
+    .stack-col .h {
+      font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent-soft); margin-bottom: 16px;
+    }
+    .stack-col .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stack-col .chips span {
+      font-size: 13.5px; color: var(--ink-dim);
+      border: 1px solid var(--line); padding: 6px 12px; border-radius: 8px;
+      background: rgba(255,255,255,0.015);
+      transition: border-color .25s var(--ease), color .25s var(--ease);
+    }
+    .stack-col .chips span:hover { border-color: var(--line-2); color: var(--ink); }
+    @media (max-width: 860px) { .stack-groups { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .stack-groups { grid-template-columns: 1fr; } }
 
     /* ---------- STATS ---------- */
-    .stats-band {
-      background: linear-gradient(180deg, var(--bg-2), var(--bg));
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .stat { padding: 8px 0; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .stat .num {
-      font-family: "Fraunces", serif;
-      font-weight: 400;
-      font-size: clamp(40px, 6vw, 64px);
-      line-height: 1;
-      letter-spacing: -0.02em;
-      color: var(--ink);
+      font-family: "Fraunces", serif; font-weight: 400;
+      font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: -0.02em; color: var(--ink);
     }
     .stat .num em { font-style: normal; color: var(--accent); }
     .stat .lbl { margin-top: 12px; color: var(--ink-dim); font-size: 15px; }
     @media (max-width: 820px) { .stats { grid-template-columns: 1fr 1fr; gap: 40px 20px; } }
 
     /* ---------- PROCESS ---------- */
-    .process-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
+    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .steps { display: flex; flex-direction: column; }
     .step {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 22px;
-      padding: 28px 0;
-      border-top: 1px solid var(--line);
+      display: grid; grid-template-columns: 54px 1fr; gap: 22px;
+      padding: 26px 0; border-top: 1px solid var(--line);
       transition: padding-left .35s var(--ease);
     }
     .step:last-child { border-bottom: 1px solid var(--line); }
     .step:hover { padding-left: 10px; }
     .step .n {
-      font-family: "Fraunces", serif;
-      font-size: 22px;
-      color: var(--accent);
-      border: 1px solid var(--line);
-      width: 54px; height: 54px;
-      display: grid; place-items: center;
-      border-radius: 50%;
+      font-family: "Fraunces", serif; font-size: 22px; color: var(--accent);
+      border: 1px solid var(--line); width: 54px; height: 54px;
+      display: grid; place-items: center; border-radius: 50%;
     }
     .step h4 { font-family: "Fraunces", serif; font-weight: 500; font-size: 22px; margin-bottom: 6px; }
     .step p { color: var(--ink-dim); font-size: 15.5px; }
     .process-aside {
-      position: sticky;
-      top: 120px;
+      position: sticky; top: 110px;
       background: linear-gradient(160deg, var(--surface), var(--bg-2));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 40px 34px;
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 38px 32px;
     }
     .process-aside .eyebrow { margin-bottom: 20px; display: block; }
     .process-aside blockquote {
-      font-family: "Fraunces", serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 26px;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
+      font-family: "Fraunces", serif; font-style: italic; font-weight: 300;
+      font-size: 25px; line-height: 1.3; letter-spacing: -0.01em;
     }
-    .process-aside .attr { margin-top: 26px; display: flex; align-items: center; gap: 14px; }
-    .process-aside .avatar {
-      width: 46px; height: 46px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--sage));
-    }
+    .process-aside .attr { margin-top: 24px; display: flex; align-items: center; gap: 14px; }
+    .process-aside .avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--sage)); }
     .process-aside .attr .name { font-weight: 600; font-size: 15px; }
     .process-aside .attr .role { font-size: 13px; color: var(--muted); }
     @media (max-width: 900px) { .process-grid { grid-template-columns: 1fr; } .process-aside { position: static; } }
 
-    /* ---------- CTA ---------- */
-    .cta {
-      text-align: center;
-      background:
-        radial-gradient(90% 130% at 50% 0%, rgba(255,91,46,0.14), transparent 60%);
+    /* ---------- TESTIMONIALS ---------- */
+    .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .quote {
+      background: linear-gradient(160deg, var(--surface), var(--bg-2));
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 28px;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
     }
+    .quote .stars { color: var(--accent); font-size: 15px; letter-spacing: 3px; }
+    .quote p { font-size: 16px; color: var(--ink); line-height: 1.55; }
+    .quote .who { display: flex; align-items: center; gap: 12px; }
+    .quote .av { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--sage), var(--accent)); flex: none; }
+    .quote .who .name { font-weight: 600; font-size: 14.5px; }
+    .quote .who .role { font-size: 12.5px; color: var(--muted); }
+    @media (max-width: 900px) { .quotes { grid-template-columns: 1fr; } }
+
+    /* ---------- FAQ ---------- */
+    .faq-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+    .faq details {
+      border-top: 1px solid var(--line); padding: 22px 0;
+    }
+    .faq details:last-child { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 20px;
+      font-family: "Fraunces", serif; font-size: 20px; font-weight: 500; align-items: center;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary .plus { color: var(--accent); font-size: 24px; transition: transform .3s var(--ease); flex: none; }
+    .faq details[open] summary .plus { transform: rotate(45deg); }
+    .faq details p { margin-top: 14px; color: var(--ink-dim); font-size: 15.5px; max-width: 60ch; }
+    @media (max-width: 860px) { .faq-grid { grid-template-columns: 1fr; gap: 30px; } }
+
+    /* ---------- CTA ---------- */
+    .cta { text-align: center; background: radial-gradient(90% 130% at 50% 0%, rgba(255,91,46,0.14), transparent 60%); }
     .cta h2 {
-      font-family: "Fraunces", serif;
-      font-weight: 400;
-      font-size: clamp(38px, 7vw, 82px);
-      line-height: 1;
-      letter-spacing: -0.03em;
-      max-width: 16ch;
-      margin-inline: auto;
+      font-family: "Fraunces", serif; font-weight: 400;
+      font-size: clamp(38px, 7vw, 82px); line-height: 1; letter-spacing: -0.03em;
+      max-width: 17ch; margin-inline: auto;
     }
     .cta h2 em { font-style: italic; color: var(--accent-soft); }
-    .cta p { margin: 26px auto 40px; color: var(--ink-dim); max-width: 46ch; font-size: 19px; }
+    .cta p { margin: 26px auto 38px; color: var(--ink-dim); max-width: 48ch; font-size: 19px; }
 
     /* ---------- FOOTER ---------- */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 60px 0 40px;
-    }
-    .foot-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
+    footer { border-top: 1px solid var(--line); padding: 60px 0 40px; }
+    .foot-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
     .foot-top .logo { font-size: 40px; }
-    .foot-links { display: flex; gap: 40px; flex-wrap: wrap; }
+    .foot-links { display: flex; gap: 48px; flex-wrap: wrap; }
     .foot-col { display: flex; flex-direction: column; gap: 12px; }
     .foot-col .h {
-      font-family: "Space Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
+      font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
     }
     .foot-col a { color: var(--ink-dim); font-size: 15px; transition: color .25s var(--ease); }
     .foot-col a:hover { color: var(--accent-soft); }
     .foot-bottom {
-      margin-top: 56px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      color: var(--muted);
-      font-family: "Space Mono", monospace;
-      letter-spacing: 0.04em;
+      margin-top: 54px; padding-top: 24px; border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+      font-size: 13px; color: var(--muted); font-family: "Space Mono", monospace; letter-spacing: 0.04em;
     }
   </style>
 </head>
@@ -441,8 +329,10 @@
         <a class="logo" href="#top"><span class="dot"></span>XMM</a>
         <div class="nav-links">
           <a href="#services">Services</a>
+          <a href="#stack">Platforms</a>
           <a href="#work">Results</a>
           <a href="#process">Process</a>
+          <a href="#faq">FAQ</a>
           <a class="btn btn-primary" href="#contact">Start a project →</a>
         </div>
       </div>
@@ -453,30 +343,34 @@
       <div class="container">
         <div class="hero-tag reveal d1">
           <span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--sage);display:inline-block;"></span>
-          <span class="pill">Now booking Q3 — 2 slots left</span>
+          <span class="pill">Full-service · Ads · Social · Web · Apps · AI · SEO</span>
         </div>
-        <h1 class="reveal d2">Growth for brands the market <em>underestimates.</em></h1>
+        <h1 class="reveal d2">Every channel to grow your brand, under <em>one roof.</em></h1>
         <p class="lede reveal d3">
-          XMM is a growth studio for founders who are done being a best-kept secret.
-          We build the strategy, the story, and the demand engine that turns quiet
-          traction into category ownership.
+          X Media Market is a full-service growth studio. From paid ads and social media to
+          websites, custom apps, and AI agents — we plan it, build it, and run it as one
+          integrated system, so every part of your marketing pulls in the same direction.
         </p>
         <div class="hero-cta reveal d4">
-          <a class="btn btn-primary" href="#contact">Book an intro call →</a>
-          <a class="btn btn-ghost" href="#work">See the results</a>
-          <span class="note">Avg. engagement: 3.4× pipeline in 6 months</span>
+          <a class="btn btn-primary" href="#contact">Book a free strategy call →</a>
+          <a class="btn btn-ghost" href="#services">Explore services</a>
+        </div>
+
+        <div class="trust-row reveal d5">
+          <div class="item"><div class="k"><em>10+</em></div><div class="v">Services delivered end-to-end in-house</div></div>
+          <div class="item"><div class="k">120<em>+</em></div><div class="v">Projects shipped across web, ads &amp; apps</div></div>
+          <div class="item"><div class="k">5.0<em>★</em></div><div class="v">Average client rating on delivery</div></div>
+          <div class="item"><div class="k">24<em>/7</em></div><div class="v">AI-assisted monitoring on live campaigns</div></div>
         </div>
       </div>
     </header>
 
     <!-- PROOF MARQUEE -->
     <div class="proof">
-      <div class="container">
-        <div class="proof-label">Trusted by teams shipping fast</div>
-      </div>
+      <div class="container"><div class="proof-label">Platforms &amp; partners we work with every day</div></div>
       <div class="marquee" aria-hidden="true">
-        <span>Northwind</span><span>·</span><span>Halcyon</span><span>·</span><span>Meridian Labs</span><span>·</span><span>Tolt</span><span>·</span><span>Vireo</span><span>·</span><span>Basecamp&nbsp;9</span><span>·</span><span>Fathom</span><span>·</span>
-        <span>Northwind</span><span>·</span><span>Halcyon</span><span>·</span><span>Meridian Labs</span><span>·</span><span>Tolt</span><span>·</span><span>Vireo</span><span>·</span><span>Basecamp&nbsp;9</span><span>·</span><span>Fathom</span><span>·</span>
+        <span>Google Ads</span><span>·</span><span>Meta</span><span>·</span><span>TikTok</span><span>·</span><span>LinkedIn</span><span>·</span><span>YouTube</span><span>·</span><span>Shopify</span><span>·</span><span>Webflow</span><span>·</span><span>WordPress</span><span>·</span><span>Next.js</span><span>·</span><span>OpenAI</span><span>·</span><span>HubSpot</span><span>·</span>
+        <span>Google Ads</span><span>·</span><span>Meta</span><span>·</span><span>TikTok</span><span>·</span><span>LinkedIn</span><span>·</span><span>YouTube</span><span>·</span><span>Shopify</span><span>·</span><span>Webflow</span><span>·</span><span>WordPress</span><span>·</span><span>Next.js</span><span>·</span><span>OpenAI</span><span>·</span><span>HubSpot</span><span>·</span>
       </div>
     </div>
 
@@ -485,98 +379,212 @@
       <div class="container">
         <div class="sec-head">
           <span class="eyebrow">What we do</span>
-          <h2>Three disciplines, one growth system.</h2>
-          <p>Most agencies hand you deliverables. We hand you momentum — an integrated engine where positioning, content, and demand reinforce each other.</p>
+          <h2>One team for everything digital.</h2>
+          <p>No more juggling five vendors who don't talk to each other. XMM covers the full stack of modern growth — strategy, media, content, engineering, and automation — all under one roof.</p>
         </div>
 
         <div class="services">
+
           <article class="card reveal d1">
-            <span class="idx">01 / STRATEGY</span>
-            <h3>Positioning &amp; Story</h3>
-            <p>We find the sharp, ownable angle the market can't ignore — then build the messaging architecture your whole team can rally behind.</p>
-            <ul>
-              <li>Brand strategy</li><li>Messaging</li><li>Narrative</li><li>GTM</li>
-            </ul>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg></div>
+            <h3>Paid Advertising</h3>
+            <p>Full-funnel media buying that's measured against pipeline and ROAS — not clicks. We build, test, and scale across every major platform.</p>
+            <ul><li>Google Ads</li><li>Meta Ads</li><li>TikTok</li><li>LinkedIn</li><li>YouTube</li><li>Programmatic</li><li>Retargeting</li></ul>
           </article>
 
           <article class="card reveal d2">
-            <span class="idx">02 / DEMAND</span>
-            <h3>Demand &amp; Performance</h3>
-            <p>Full-funnel campaigns across paid, lifecycle, and organic — instrumented, tested, and optimized against pipeline, not vanity metrics.</p>
-            <ul>
-              <li>Paid media</li><li>SEO</li><li>Email</li><li>Analytics</li>
-            </ul>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            <h3>Social Media Management</h3>
+            <p>Always-on social presence — content calendars, community management, and organic growth that turns followers into a real audience.</p>
+            <ul><li>Content calendars</li><li>Community</li><li>Organic growth</li><li>Influencer</li><li>UGC</li></ul>
           </article>
 
           <article class="card reveal d3">
-            <span class="idx">03 / CONTENT</span>
-            <h3>Content &amp; Creative</h3>
-            <p>Editorial, design, and video that earns attention and compounds — a library of assets working for you long after launch day.</p>
-            <ul>
-              <li>Editorial</li><li>Design</li><li>Video</li><li>Web</li>
-            </ul>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+            <h3>SEO &amp; Content</h3>
+            <p>Rank for what your customers actually search. Technical fixes, on-page optimization, and content that compounds into organic traffic.</p>
+            <ul><li>Technical SEO</li><li>On-page</li><li>Link building</li><li>Local SEO</li><li>Blog &amp; editorial</li></ul>
           </article>
+
+          <article class="card reveal d1">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 21h10"/></svg></div>
+            <h3>Website Development</h3>
+            <p>Fast, beautiful, conversion-focused websites — from marketing sites and landing pages to full e-commerce storefronts.</p>
+            <ul><li>Webflow</li><li>WordPress</li><li>Shopify</li><li>Custom code</li><li>Landing pages</li><li>CRO</li></ul>
+          </article>
+
+          <article class="card reveal d2">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/></svg></div>
+            <h3>Custom App Development</h3>
+            <p>Web and mobile applications built to spec — from SaaS MVPs to internal tools and customer-facing platforms that scale.</p>
+            <ul><li>Web apps</li><li>Mobile (iOS/Android)</li><li>SaaS MVPs</li><li>APIs</li><li>Dashboards</li></ul>
+          </article>
+
+          <article class="card reveal d3">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="12" rx="2"/><path d="M12 7V4M9 12h.01M15 12h.01M8 3h8"/></svg></div>
+            <h3>AI Agents &amp; Automation</h3>
+            <p>Custom AI agents and workflows that handle support, sales, and ops — plugged into your tools so your team does more with less.</p>
+            <ul><li>AI agents</li><li>Chatbots</li><li>Workflow automation</li><li>RAG &amp; integrations</li><li>Voice AI</li></ul>
+          </article>
+
+          <article class="card reveal d1">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5.4L20 8l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-.6z"/></svg></div>
+            <h3>Branding &amp; Strategy</h3>
+            <p>The sharp, ownable positioning and identity that makes you the obvious choice — plus the go-to-market plan to back it up.</p>
+            <ul><li>Positioning</li><li>Visual identity</li><li>Messaging</li><li>Naming</li><li>GTM strategy</li></ul>
+          </article>
+
+          <article class="card reveal d2">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+            <h3>Email &amp; Lifecycle</h3>
+            <p>Automated email and CRM flows that nurture, convert, and retain — turning one-time buyers into repeat revenue.</p>
+            <ul><li>Email automation</li><li>Newsletters</li><li>CRM setup</li><li>Retention</li><li>SMS</li></ul>
+          </article>
+
+          <article class="card reveal d3">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+            <h3>Analytics &amp; CRO</h3>
+            <p>Clean tracking, clear dashboards, and relentless testing — so every decision is grounded in what actually moves the numbers.</p>
+            <ul><li>GA4 &amp; tracking</li><li>Dashboards</li><li>A/B testing</li><li>Funnel optimization</li><li>Attribution</li></ul>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <div class="stats-band" id="work">
-      <section style="padding-block: clamp(60px,7vw,90px);">
+    <!-- PLATFORMS / STACK -->
+    <div class="stack-band" id="stack">
+      <section>
         <div class="container">
-          <div class="sec-head" style="margin-bottom:48px;">
-            <span class="eyebrow">The receipts</span>
-            <h2>Numbers that compound.</h2>
+          <div class="sec-head">
+            <span class="eyebrow">Our toolkit</span>
+            <h2>Certified where it counts, fluent everywhere else.</h2>
+            <p>We meet your customers on every platform and build on the tools your team already trusts.</p>
           </div>
-          <div class="stats">
-            <div class="stat reveal d1"><div class="num"><em>3.4×</em></div><div class="lbl">Average pipeline growth within six months</div></div>
-            <div class="stat reveal d2"><div class="num">−41<em>%</em></div><div class="lbl">Lower blended cost per qualified lead</div></div>
-            <div class="stat reveal d3"><div class="num">120<em>+</em></div><div class="lbl">Launches shipped for seed to Series C teams</div></div>
-            <div class="stat reveal d4"><div class="num">92<em>%</em></div><div class="lbl">Of clients renew or expand after the first quarter</div></div>
+          <div class="stack-groups">
+            <div class="stack-col">
+              <div class="h">Advertising</div>
+              <div class="chips"><span>Google Ads</span><span>Meta</span><span>TikTok</span><span>LinkedIn</span><span>YouTube</span><span>Pinterest</span><span>Reddit</span></div>
+            </div>
+            <div class="stack-col">
+              <div class="h">Build</div>
+              <div class="chips"><span>Webflow</span><span>WordPress</span><span>Shopify</span><span>Next.js</span><span>React</span><span>React Native</span><span>Node</span></div>
+            </div>
+            <div class="stack-col">
+              <div class="h">AI &amp; Automation</div>
+              <div class="chips"><span>OpenAI</span><span>Anthropic</span><span>LangChain</span><span>Zapier</span><span>Make</span><span>n8n</span></div>
+            </div>
+            <div class="stack-col">
+              <div class="h">Data &amp; CRM</div>
+              <div class="chips"><span>GA4</span><span>HubSpot</span><span>Klaviyo</span><span>Segment</span><span>Looker</span><span>Meta Pixel</span></div>
+            </div>
           </div>
         </div>
       </section>
     </div>
 
+    <!-- STATS -->
+    <section id="work">
+      <div class="container">
+        <div class="sec-head" style="margin-bottom:48px;">
+          <span class="eyebrow">The receipts</span>
+          <h2>Work that compounds.</h2>
+        </div>
+        <div class="stats">
+          <div class="stat reveal d1"><div class="num"><em>3.4×</em></div><div class="lbl">Average pipeline growth within six months</div></div>
+          <div class="stat reveal d2"><div class="num">−41<em>%</em></div><div class="lbl">Lower blended cost per qualified lead</div></div>
+          <div class="stat reveal d3"><div class="num">120<em>+</em></div><div class="lbl">Projects shipped for seed to Series C teams</div></div>
+          <div class="stat reveal d4"><div class="num">92<em>%</em></div><div class="lbl">Of clients renew or expand after the first quarter</div></div>
+        </div>
+      </div>
+    </section>
+
     <!-- PROCESS -->
-    <section id="process">
+    <section id="process" style="padding-top:0;">
       <div class="container">
         <div class="sec-head">
           <span class="eyebrow">How it works</span>
           <h2>A clear path from signal to scale.</h2>
         </div>
-
         <div class="process-grid">
           <div class="steps">
-            <div class="step">
-              <div class="n">01</div>
-              <div><h4>Diagnose</h4><p>Two weeks inside your data, your market, and your customers to find the real constraint on growth — not the obvious one.</p></div>
-            </div>
-            <div class="step">
-              <div class="n">02</div>
-              <div><h4>Position</h4><p>We craft the angle and messaging that make you the obvious choice, then pressure-test it with the people who actually buy.</p></div>
-            </div>
-            <div class="step">
-              <div class="n">03</div>
-              <div><h4>Build</h4><p>Campaigns, content, and creative shipped in fast cycles — instrumented from day one so we learn as we launch.</p></div>
-            </div>
-            <div class="step">
-              <div class="n">04</div>
-              <div><h4>Compound</h4><p>Double down on what works, kill what doesn't, and turn the winners into a repeatable system your team can own.</p></div>
-            </div>
+            <div class="step"><div class="n">01</div><div><h4>Diagnose</h4><p>We dig into your data, market, and customers to find the real constraint on growth — not the obvious one.</p></div></div>
+            <div class="step"><div class="n">02</div><div><h4>Plan</h4><p>A prioritized roadmap across the exact channels that matter, with clear goals, owners, and timelines.</p></div></div>
+            <div class="step"><div class="n">03</div><div><h4>Build &amp; launch</h4><p>Sites, campaigns, apps, and automations shipped in fast cycles — instrumented from day one so we learn as we go.</p></div></div>
+            <div class="step"><div class="n">04</div><div><h4>Compound</h4><p>Double down on winners, cut what doesn't work, and turn results into a repeatable system your team can own.</p></div></div>
           </div>
-
           <aside class="process-aside">
             <span class="eyebrow">Why teams stay</span>
-            <blockquote>"XMM didn't just run our marketing — they gave us a growth engine we finally understood. Six months in, inbound is our best sales rep."</blockquote>
+            <blockquote>"XMM replaced three of our vendors. Ads, website, and our AI support agent now come from one team that actually talks to itself — and the results show it."</blockquote>
             <div class="attr">
               <div class="avatar"></div>
-              <div>
-                <div class="name">Dana Okafor</div>
-                <div class="role">Co-founder &amp; CEO, Meridian Labs</div>
-              </div>
+              <div><div class="name">Dana Okafor</div><div class="role">Co-founder &amp; CEO, Meridian Labs</div></div>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">In their words</span>
+          <h2>Clients who came for one thing and stayed for everything.</h2>
+        </div>
+        <div class="quotes">
+          <div class="quote reveal d1">
+            <div><div class="stars">★★★★★</div><p style="margin-top:16px;">"They rebuilt our site and took over paid in the same month. Conversion rate nearly doubled and CPL dropped by a third."</p></div>
+            <div class="who"><div class="av"></div><div><div class="name">Marcus Vance</div><div class="role">Head of Growth, Tolt</div></div></div>
+          </div>
+          <div class="quote reveal d2">
+            <div><div class="stars">★★★★★</div><p style="margin-top:16px;">"The AI support agent XMM built handles 60% of our tickets. It paid for the whole engagement in the first quarter."</p></div>
+            <div class="who"><div class="av"></div><div><div class="name">Priya Nair</div><div class="role">COO, Vireo</div></div></div>
+          </div>
+          <div class="quote reveal d3">
+            <div><div class="stars">★★★★★</div><p style="margin-top:16px;">"Finally an agency that gets strategy, design, and code. One roadmap, one invoice, zero finger-pointing."</p></div>
+            <div class="who"><div class="av"></div><div><div class="name">Leah Grant</div><div class="role">Founder, Halcyon</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="padding-top:0;">
+      <div class="container">
+        <div class="faq-grid">
+          <div>
+            <span class="eyebrow">Good to know</span>
+            <h2 style="font-family:'Fraunces',serif;font-weight:400;font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:-0.02em;margin-top:18px;">Questions we hear a lot.</h2>
+            <p style="margin-top:18px;color:var(--ink-dim);">Still unsure? A 30-minute call clears most of it up — no pitch, no pressure.</p>
+            <a class="btn btn-primary" href="#contact" style="margin-top:24px;">Book a call →</a>
+          </div>
+          <div class="faq">
+            <details open>
+              <summary>Do you really do all of this in-house?<span class="plus">+</span></summary>
+              <p>Yes. Strategy, media buying, design, content, engineering, and AI automation are all handled by one integrated team. That's what lets every channel share the same data and pull in the same direction.</p>
+            </details>
+            <details>
+              <summary>How quickly can we get started?<span class="plus">+</span></summary>
+              <p>Most engagements kick off within 1–2 weeks. We begin with a diagnostic sprint so the first work you see is grounded in your actual data, not guesswork.</p>
+            </details>
+            <details>
+              <summary>Can we hire you for just one service?<span class="plus">+</span></summary>
+              <p>Absolutely. Plenty of clients start with a single project — a website, an ad account, or an AI agent — and expand once they see how the pieces fit together.</p>
+            </details>
+            <details>
+              <summary>How does pricing work?<span class="plus">+</span></summary>
+              <p>We offer fixed-scope projects and monthly retainers depending on what you need. You'll always get a clear scope and price up front — no surprise invoices.</p>
+            </details>
+            <details>
+              <summary>Will we own everything you build?<span class="plus">+</span></summary>
+              <p>Completely. Websites, ad accounts, code, automations, and data belong to you. We build systems your team can run without us — that's the point.</p>
+            </details>
+            <details>
+              <summary>What if it isn't working?<span class="plus">+</span></summary>
+              <p>We report transparently and review performance on a fixed cadence. If something underperforms, we say so, adjust fast, and reallocate budget to what's actually driving results.</p>
+            </details>
+          </div>
         </div>
       </div>
     </section>
@@ -585,9 +593,9 @@
     <section class="cta" id="contact">
       <div class="container">
         <span class="eyebrow">Let's build something</span>
-        <h2 style="margin-top:22px;">Your growth ceiling is a <em>strategy</em> problem.</h2>
-        <p>Book a 30-minute intro call. We'll pressure-test your current motion and show you where the next 3× is hiding — no pitch deck, no obligation.</p>
-        <a class="btn btn-primary" href="mailto:hello@xmm.studio" style="font-size:17px;padding:16px 30px;">Book an intro call →</a>
+        <h2 style="margin-top:22px;">One partner for <em>every</em> part of your growth.</h2>
+        <p>Book a free 30-minute strategy call. We'll look at where you are, map where the next big win is hiding, and show you exactly how we'd get you there.</p>
+        <a class="btn btn-primary" href="mailto:hello@xmediamarket.com" style="font-size:17px;padding:16px 30px;">Book a free strategy call →</a>
       </div>
     </section>
 
@@ -597,25 +605,42 @@
         <div class="foot-top">
           <div>
             <a class="logo" href="#top"><span class="dot"></span>XMM</a>
-            <p style="max-width:34ch;color:var(--muted);margin-top:16px;font-size:15px;">A growth studio for brands the market underestimates. Strategy, story, and demand — built to compound.</p>
+            <p style="max-width:36ch;color:var(--muted);margin-top:16px;font-size:15px;">X Media Market — a full-service growth studio. Ads, social, SEO, websites, apps, and AI, built to compound.</p>
           </div>
           <div class="foot-links">
             <div class="foot-col">
+              <span class="h">Services</span>
+              <a href="#services">Paid Advertising</a>
+              <a href="#services">Social Media</a>
+              <a href="#services">SEO &amp; Content</a>
+              <a href="#services">Web Development</a>
+              <a href="#services">App Development</a>
+            </div>
+            <div class="foot-col">
+              <span class="h">More</span>
+              <a href="#services">AI Agents</a>
+              <a href="#services">Branding</a>
+              <a href="#services">Email &amp; CRM</a>
+              <a href="#services">Analytics &amp; CRO</a>
+            </div>
+            <div class="foot-col">
               <span class="h">Studio</span>
-              <a href="#services">Services</a>
               <a href="#work">Results</a>
               <a href="#process">Process</a>
+              <a href="#faq">FAQ</a>
+              <a href="#contact">Contact</a>
             </div>
             <div class="foot-col">
               <span class="h">Connect</span>
-              <a href="mailto:hello@xmm.studio">Email</a>
+              <a href="mailto:hello@xmediamarket.com">Email</a>
               <a href="#">LinkedIn</a>
               <a href="#">Instagram</a>
+              <a href="#">X / Twitter</a>
             </div>
           </div>
         </div>
         <div class="foot-bottom">
-          <span>© 2026 XMM Studio. All rights reserved.</span>
+          <span>© 2026 X Media Market (XMM). All rights reserved.</span>
           <span>Built with momentum ✦</span>
         </div>
       </div>
